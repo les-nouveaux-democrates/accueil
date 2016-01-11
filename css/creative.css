@@ -434,6 +434,12 @@ fieldset[disabled] .btn-primary.active {
     background-color: #ff6100;
 }
 
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.focus:active, .btn-primary:active:focus, .btn-primary:active:hover, .open > .dropdown-toggle.btn-primary.focus, .open > .dropdown-toggle.btn-primary:focus, .open > .dropdown-toggle.btn-primary:hover {
+    color: #FFF;
+    background-color: #ff6100;
+    border-color: #ff6100;
+}
+
 .btn-primary .badge {
     color: #ff6100;
     background-color: #fff;
