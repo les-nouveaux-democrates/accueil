@@ -17,6 +17,8 @@
 
 	<title>Les Nouveaux Démocrates</title>
 
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
@@ -223,6 +225,18 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<h2 class="section-heading">Notre équipe mêle expérience et renouveau</h2>
+					<p class="minitext">Notre équipe sera dévoilée progressivement !</p>
+					<hr class="primary">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="soutiens" class="bg-dark" hidden>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">Notre équipe mêle expérience et renouveau</h2>
 					<p class="minitext">Notre équipe est dévoilée progressivement !</p>
 					<hr class="primary">
 				</div>
@@ -310,31 +324,32 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<h2 class="section-heading">Notre projet en 6 axes, rédigés collaborativement</h2>
-					<p class="minitext">Le projet sera dévoilé progressivement !</p>
+					<p class="minitext">Le projet est dévoilé progressivement !</p>
 					<hr class="primary">
 				</div>
 			</div>
 		</div>
-		<div class="container-fluid" hidden>
+		<div class="container-fluid">
 			<div class="row no-gutter">
 				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="portfolio-box">
-						<img src="img/fiole-1.png" class="img-responsive" alt="">
+					<a href="https://docs.google.com/document/d/12dF7KZ9p-9MZmt89SCMG2YK1XTGB8h8C59K3gtF6_fk/" target="_blank" class="portfolio-box">
+						<img src="img/axe1.png" class="img-responsive" alt="">
 						<div class="portfolio-box-caption">
 							<div class="portfolio-box-caption-content">
 								<div class="project-category text-faded">
 									Axe 1
 								</div>
-								<div class="project-name">
-									À venir
-								</div>
+								<h3 class="project-name">
+									Mobilisation, Action !
+								</h3>
+								<p class="small">Cliquez pour le détail des propositions</p>
 							</div>
 						</div>
 					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="portfolio-box">
-						<img src="img/fiole-2.png" class="img-responsive" alt="">
+					<a class="portfolio-box">
+						<img src="img/axe-vide.png" class="img-responsive" alt="">
 						<div class="portfolio-box-caption">
 							<div class="portfolio-box-caption-content">
 								<div class="project-category text-faded">
@@ -348,8 +363,8 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="portfolio-box">
-						<img src="img/fiole-3.png" class="img-responsive" alt="">
+					<a class="portfolio-box">
+						<img src="img/axe-vide.png" class="img-responsive" alt="">
 						<div class="portfolio-box-caption">
 							<div class="portfolio-box-caption-content">
 								<div class="project-category text-faded">
@@ -363,8 +378,8 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="portfolio-box">
-						<img src="img/fiole-4.png" class="img-responsive" alt="">
+					<a class="portfolio-box">
+						<img src="img/axe-vide.png" class="img-responsive" alt="">
 						<div class="portfolio-box-caption">
 							<div class="portfolio-box-caption-content">
 								<div class="project-category text-faded">
@@ -378,8 +393,8 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="portfolio-box">
-						<img src="img/fiole-5.png" class="img-responsive" alt="">
+					<a class="portfolio-box">
+						<img src="img/axe-vide.png" class="img-responsive" alt="">
 						<div class="portfolio-box-caption">
 							<div class="portfolio-box-caption-content">
 								<div class="project-category text-faded">
@@ -393,8 +408,8 @@
 					</a>
 				</div>
 				<div class="col-lg-4 col-sm-6">
-					<a href="#" class="portfolio-box">
-						<img src="img/fiole-6.png" class="img-responsive" alt="">
+					<a class="portfolio-box">
+						<img src="img/axe-vide.png" class="img-responsive" alt="">
 						<div class="portfolio-box-caption">
 							<div class="portfolio-box-caption-content">
 								<div class="project-category text-faded">
@@ -502,6 +517,8 @@
 	#mc_embed_signup { background: none; }
 	#mc_embed_signup h2 { color: #ff6100; }
 
+	.project-name { text-transform: uppercase; margin-top: .25em; font-weight: bold; }
+
 	.minitext { text-align: center; color: #777; max-width: 48em; margin-left: auto; margin-right: auto; }
 
 	#soutiens .portrait { display: inline-block; border-radius: 50%; border: .5em solid #ccc; height: 12em; width: 12em; background-size: contain; background-position: top; }
@@ -520,10 +537,10 @@
 		$(this).fadeOut()
 	})
 
-	$('.portfolio-box').click(function(){
-		$(this).toggleClass('active')
-		return false
-	})
+//	$('.portfolio-box').click(function(){
+//		$(this).toggleClass('active')
+//		return false
+//	})
 
 	$('#membres-de-lequipe > .row > div').each(function(){
 		var $membre = $(this)
@@ -541,7 +558,6 @@
 	$.ajax({
 		url:'https://spreadsheets.google.com/feeds/list/1JSkb8-6neDa_wH8RdvOzk1fwsE3WF9tk--lx9my1o_8/1/public/basic?alt=json',
 		success: function(data){
-			console.log(data.feed);
 			var rows = [];
 			var cells = data.feed.entry;
 			for (var i = 0; i < cells.length; i++){
