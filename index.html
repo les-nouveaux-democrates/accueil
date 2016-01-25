@@ -225,64 +225,18 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<h2 class="section-heading">Notre équipe mêle expérience et renouveau</h2>
-					<p class="minitext">Notre équipe sera dévoilée progressivement suite au dépôt des listes du 21 janvier !</p>
-					<hr class="primary">
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="soutiens" class="bg-dark" hidden>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">Notre équipe mêle expérience et renouveau</h2>
 					<p class="minitext">Notre équipe est dévoilée progressivement, tout au long de la campagne !</p>
 					<hr class="primary">
 				</div>
 			</div>
-
+<!--	
 			<div id="membres-de-lequipe">
 
-				<div class="row">
-
-					<div
-						data-name="Antonin Grêlé"
-						data-quote="Nous avons devant nous une chance unique de réinventer notre mouvement, à force d'audace, d'innovation, de confiance et de simplicité!"
-						data-description="Conseiller Municipal de Viroflay, Consultant en Innovation"
-						data-image="https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpa1/v/t1.0-0/s526x395/12410535_10100296117712301_878636644662596912_n.jpg?oh=1865a4dbfa36eb0f49371ff7f3ba0010&oe=57125737"
-						></div>
-
-					<div
-						data-name="Stéphen Daloz"
-						data-description="Actuel Secrétaire Général des JDem"
-						data-image="https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s720x720/289774_227704560608531_6918315_o.jpg"
-						></div>
-
-					<div
-						data-name="Elise Pupier"
-						data-description="Actuel Secrétaire Général des JDem"
-						data-image="https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s720x720/289774_227704560608531_6918315_o.jpg"
-						></div>
-
-					<div
-						data-name="Loic Terrenes"
-						data-description="Actuel Secrétaire Général des JDem"
-						data-image="https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s720x720/289774_227704560608531_6918315_o.jpg"
-						></div>
-
-<!--
-					<div
-						data-name=""
-						data-description=""
-						data-image=""
-						data-quote=""
-						></div>
--->
+				<div id="listeux" class="row">
 
 				</div>
 
-						<br>
+				<br>
 						<h3 class="text-center">Ils nous soutiennent :</h3>
 						<hr class="primary">
 
@@ -312,7 +266,7 @@
 						data-image="https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s720x720/289774_227704560608531_6918315_o.jpg"
 						></div>
 
-				</div>
+				</div> -->
 
 			</div>
 		</div>
@@ -526,6 +480,7 @@
 	#soutiens .soutiens .portrait { height: 9em; width: 9em; }
 	#soutiens .description { color: #999; font-size: 1em}
 	#soutiens .quote { color: #ccc; font-size: 1em; font-style: italic; }
+	.portrait-box { box-sizing: border-box; padding-top: 1em; padding-bottom: 1em; }
 </style>
 
 	<!-- jQuery -->
@@ -543,36 +498,56 @@
 //		return false
 //	})
 
-	$('#membres-de-lequipe > .row > div').each(function(){
-		var $membre = $(this)
-			name = $membre.attr('data-name')
-			image = $membre.attr('data-image')
-			quote = $membre.attr('data-quote')
-			description = $membre.attr('data-description')
-		$(this).addClass('col-sm-6 col-md-4 col-lg-3 text-center')
-		$(this).append('<div class="portrait" style="background-image: url(&quot;' + image + '&quot;)"></div>')
-		$(this).append('<h3>' + name + '</h3>')
-		if (typeof description !== "undefined") $(this).append('<p class="description">' + description + '</p>')
-		if (typeof quote !== "undefined") $(this).append('<hr><p class="quote">' + quote + '</p>')
-	})
+	</script>
 
-	$.ajax({
-		url:'https://spreadsheets.google.com/feeds/list/1JSkb8-6neDa_wH8RdvOzk1fwsE3WF9tk--lx9my1o_8/1/public/basic?alt=json',
-		success: function(data){
-			var rows = [];
-			var cells = data.feed.entry;
-			for (var i = 0; i < cells.length; i++){
-				var rowObj = {};
-				rowObj.timestamp = cells[i].title.$t;
-				var rowCols = cells[i].content.$t.split(',');
-				for (var j = 0; j < rowCols.length; j++){
-					var keyVal = rowCols[j].split(':');
-					rowObj[keyVal[0].trim()] = keyVal[1].trim();
-				}
-				rows.push(rowObj);
-			}
-		}
-	});
+	<script>
+	
+	function loadPortraits() {
+		// Tries to get data from the Sheets api. Otherwise, retries 200ms later.
+		if (callPortraits.responseJSON === undefined) setTimeout(loadPortraits, 200)
+		else buildPortraits(callPortraits.responseJSON.feed.entry) 
+	}
+	
+	function buildPortraits(people) {
+		// Builds the HTML structure around a portrait.
+		$.each(people, function(i, person) {
+			var nom = person.title.$t
+				details = person.content.$t.replace('prénom: ', '').replace(', photo: ','|').replace(', description: ','|').replace(', citation: ','|').split('|')
+				prenom = details[0]
+				image = details[1]
+				description = details[2]
+				citation = details[3]
+	
+			$('#listeux').append('<div id="portrait-' + i + '" class="portrait-box"></div>')
+	
+			$('#portrait-' + i)
+				.attr('data-name', prenom + ' ' + nom)
+				.attr('data-description', description)
+				.attr('data-image', image)
+				.attr('data-quote', citation)
+		})
+
+		$('#membres-de-lequipe > .row > div').each(function(){
+			var $membre = $(this)
+				name = $membre.attr('data-name')
+				image = $membre.attr('data-image')
+				quote = $membre.attr('data-quote')
+				description = $membre.attr('data-description')
+			$(this).addClass('col-sm-6 col-md-4 col-lg-3 text-center')
+			$(this).append('<div class="portrait" style="background-image: url(&quot;' + image + '&quot;)"></div>')
+			$(this).append('<h3>' + name + '</h3>')
+			if (typeof description !== "undefined") $(this).append('<p class="description">' + description + '</p>')
+			if (typeof quote !== "undefined") $(this).append('<hr><p class="quote">' + quote + '</p>')
+		})
+
+	}
+	
+	var api = "https://spreadsheets.google.com/feeds/list/1cFiTd89Hbtzp_Gd0lGm8Z00ZMdI4MQY2DifmG_Fv2iM/1/public/basic?alt=json"
+	
+	$( document ).ready(function() {
+		callPortraits = $.ajax(api)
+		loadPortraits()
+	})
 
 	</script>
 
