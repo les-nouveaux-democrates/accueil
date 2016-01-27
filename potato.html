@@ -507,11 +507,17 @@
 		// Builds the HTML structure around a portrait.
 		$.each(people, function(i, person) {
 			var nom = person.title.$t
-				details = person.content.$t.replace('prénom: ', '').replace(', photo: ','|').replace(', description: ','|').replace(', citation: ','|').split('|')
+				details = person.content.$t.replace('prénom: ', '')
+					.replace(', photo: ','|')
+					.replace(', description: ','|')
+					.replace(', citation: ','|')
+					.replace(', statut: ','|')
+					.split('|')
 				prenom = details[0]
 				image = details[1]
 				description = details[2]
 				citation = details[3]
+				citation = details[4]
 	
 			$('#listeux').append('<div id="portrait-' + i + '" class="portrait-box"></div>')
 	
