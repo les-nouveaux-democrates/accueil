@@ -236,41 +236,13 @@
 
 				</div>
 
-				<!--
+				<h3 class="text-center" style="margin-top: 2em;">Ils nous soutiennent également :</h3>
 
-						<br>
-						<h3 class="text-center">Ils nous soutiennent :</h3>
-						<hr class="primary">
+				<hr>
 
-				<div class="row soutiens">
-
-					<div
-						data-name="Charlotte Hoffmann"
-						data-description="Actuelle trésorière des JDem"
-						data-image="https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xpl1/v/t1.0-9/2992_92807939362_3373441_n.jpg?oh=5baa2c706275e0342e1b612013232e81&oe=56FBD87B"
-						></div>
-
-					<div
-						data-name="Jean-Baptiste Hamonic"
-						data-description="Porte-parole du MoDem78"
-						data-image="https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s720x720/289774_227704560608531_6918315_o.jpg"
-						></div>
-
-					<div
-						data-name="Charlotte Baelde"
-						data-description="Conseillère Régionale d'Île-de-France"
-						data-image="https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s720x720/289774_227704560608531_6918315_o.jpg"
-						></div>
-
-					<div
-						data-name="Loic Terrenes"
-						data-description="Actuel Secrétaire Général des JDem"
-						data-image="https://scontent-cdg2-1.xx.fbcdn.net/hphotos-xfa1/t31.0-8/s720x720/289774_227704560608531_6918315_o.jpg"
-						></div>
+				<div id="copains">
 
 				</div>
-
-				-->
 
 			</div>
 		</div>
@@ -512,29 +484,41 @@
 					.replace(', description: ','|')
 					.replace(', citation: ','|')
 					.replace(', statut: ','|')
+					.replace(', actif: ','|')
 					.split('|')
 				prenom = details[0]
 				image = details[1]
 				description = details[2]
 				citation = details[3]
-				citation = details[4]
+				statut = details[4]
+				actif = details[5]
 	
-			$('#listeux').append('<div id="portrait-' + i + '" class="portrait-box"></div>')
+			if (statut==="Listeux") $('#listeux').append('<div id="portrait-' + i + '" class="portrait-box"></div>')
+			if (statut==="Soutien") $('#copains').append('<div id="portrait-' + i + '" class="portrait-box"></div>')
 	
 			$('#portrait-' + i)
 				.attr('data-name', prenom + ' ' + nom)
 				.attr('data-description', description)
 				.attr('data-image', image)
 				.attr('data-quote', citation)
+				.attr('data-status', statut)
+				.attr('data-active', actif)
 		})
 
-		$('#listeux > div').each(function(){
+		$('#listeux > div, #copains > div').each(function(){
 			var $membre = $(this)
 				name = $membre.attr('data-name')
 				image = $membre.attr('data-image')
 				quote = $membre.attr('data-quote')
 				description = $membre.attr('data-description')
+				status = $membre.attr('data-status')
+				active = $membre.attr('data-active')
 				randomDelay = '.' + (Math.floor(Math.random() * 10 ) + 1).toString() + 's'
+			if (active==="Non") {
+				image = "http://imgur.com/8Nc65xR.png"
+				name = "???"
+				description = "Pas encore dévoilé"
+			}
 			$(this).addClass('col-sm-6 col-md-4 col-lg-3 text-center wow flipInY')
 			$(this).attr('data-wow-delay', randomDelay).attr('data-wow-duration', '3s' )
 			$(this).append('<div class="portrait" style="background-image: url(&quot;' + image + '&quot;)"></div>')
