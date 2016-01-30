@@ -89,6 +89,28 @@
 		</div>
 	</header>
 
+	<div onclick="window.open('https://www.google.com/maps/d/embed?mid=zgXiTd9sJQ2g.kLSdy8lcaws8')"
+		style="display: block; width: 100%; height: 50vh; max-height: 400px; background-image: url('img/carte-des-rencontres.jpg'); background-size: cover; background-position: center;"
+		class="map" target="_blank">
+		<div class="map--content" class="fluid-container">
+			<div class="map--text text-center">
+				<h2 style="color: #ff6100">Venez nous rencontrer...</h2>
+				<p class="minitext">À Paris, Lille, Lyon, Caen ou Nancy !</p>
+				<p class="minitext potato-text" style="font-size: .8em;"><i class="fa fa-arrow-right" style="position: relative; bottom: .1em;"></i> Voir le détail des évènements</p>
+			</div>
+		</div>
+	</div>
+
+	<style>
+
+	.map { position: relative; }
+	.map--content { height: 100%; width: 100%; transition: 1s all; opacity: 0; cursor: pointer; }
+	.map--content:hover { background-color: rgba(255,255,255,.5); opacity: 1; }
+	.map--text { position: absolute; width: 100%; top: 30%; padding: 0 4em; text-shadow: rgba(255, 255, 255, 0.85) 0px 0px 2em;}
+	.potato-text:hover { text-decoration: underline; }
+
+	</style>
+
 	<section id="tribune">
 		<div class="container">
 			<div class="row">
