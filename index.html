@@ -91,7 +91,7 @@
 
 	<div onclick="window.open('https://www.google.com/maps/d/embed?mid=zgXiTd9sJQ2g.kLSdy8lcaws8')"
 		style="display: block; width: 100%; height: 50vh; max-height: 400px; background-image: url('img/carte-des-rencontres.jpg'); background-size: cover; background-position: center;"
-		class="map" target="_blank">
+		class="map wow fadeInUp" target="_blank">
 		<div class="map--content" class="fluid-container">
 			<div class="map--text text-center">
 				<h2 style="color: #ff6100">Venez nous rencontrer...</h2>
@@ -258,9 +258,9 @@
 
 				</div>
 
-<!--				<h3 class="text-center" style="margin-top: 2em;">Ils nous soutiennent également :</h3>
+				<h3 class="text-center" style="margin-top: 2em;">Ils nous soutiennent également :</h3>
 
-				<hr> -->
+				<hr>
 
 				<div id="copains">
 
@@ -350,11 +350,8 @@
 
 				<div class="col-sm-6">
 <!-- Begin MailChimp Signup Form -->
-<!--<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">-->
 <style type="text/css">
 	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
 <div id="mc_embed_signup">
 <form action="//facebook.us12.list-manage.com/subscribe/post?u=369b8bd37fe81d28d8c4b8be1&amp;id=a07c137fa7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -421,7 +418,7 @@
 
 	.minitext { text-align: center; color: #777; max-width: 48em; margin-left: auto; margin-right: auto; }
 
-	#soutiens .portrait { display: inline-block; border-radius: 50%; border: .5em solid #ccc; height: 12em; width: 12em; background-size: contain; background-position: top; }
+	#soutiens .portrait { display: inline-block; border-radius: 50%; border: .5em solid #ccc; height: 12em; width: 12em; background-size: cover; background-position: top; }
 	#soutiens .soutiens .portrait { height: 9em; width: 9em; }
 	#soutiens .description { color: #999; font-size: 1em}
 	#soutiens .quote { color: #ccc; font-size: 1em; font-style: italic; }
@@ -437,15 +434,6 @@
 		$('#tribune-contenu').addClass('read-more')
 		$(this).fadeOut()
 	})
-
-//	$('.portfolio-box').click(function(){
-//		$(this).toggleClass('active')
-//		return false
-//	})
-
-	</script>
-
-	<script>
 	
 	function loadPortraits() {
 		// Tries to get data from the Sheets api. Otherwise, retries 200ms later.
@@ -509,10 +497,10 @@
 	
 	var api = "https://spreadsheets.google.com/feeds/list/1cFiTd89Hbtzp_Gd0lGm8Z00ZMdI4MQY2DifmG_Fv2iM/1/public/basic?alt=json"
 	
-//	$( document ).ready(function() {
-//		callPortraits = $.ajax(api)
-//		loadPortraits()
-//	})
+	$( document ).ready(function() {
+		callPortraits = $.ajax(api)
+		loadPortraits()
+	})
 
 	</script>
 
