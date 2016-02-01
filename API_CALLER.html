@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>API CALLER !</title>
+</head>
+
+<body>
+<h1>API CALLER !</h1>
+<div id="result">Loading...</div>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<script>
+
+function loadPortraits() {
+	// Tries to get data from the Sheets api. Otherwise, retries 200ms later.
+	if (callPortraits.responseJSON === undefined) setTimeout(loadPortraits, 200)
+	else buildPortraits(callPortraits.responseJSON.feed.entry) 
+}
+
+function buildPortraits(people) {
+	// Builds the HTML structure around a portrait.
+	$.each(people, function(i, person) {
+		var nom = person.title.$t
+			details = person.content.$t.replace('prénom: ', '').replace(', photo: ','|').replace(', description: ','|').replace(', citation: ','|').split('|')
+			prenom = details[0]
+			image = details[1]
+			description = details[2]
+			citation = details[3]
+
+		$('#result').append('<div id="portrait-' + i + '"></div>')
+
+		$('#portrait-' + i)
+			.attr('data-name', prenom + ' ' + nom)
+			.attr('data-description', description)
+			.attr('data-image', image)
+			.attr('data-quote', citation)
+	
+	})
+	
+}
+
+var api = "https://spreadsheets.google.com/feeds/list/1cFiTd89Hbtzp_Gd0lGm8Z00ZMdI4MQY2DifmG_Fv2iM/1/public/basic?alt=json"
+
+$( document ).ready(function() {
+	callPortraits = $.ajax(api)
+	loadPortraits()
+})
+
+
+//	
+
+
+
+</script>
+
+</html>
+
