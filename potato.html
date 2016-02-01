@@ -22,14 +22,6 @@
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
 
-	<!-- Custom Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
-	<!-- Plugin CSS -->
-	<link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="css/creative.css" type="text/css">
 
@@ -82,12 +74,128 @@
 	<header>
 		<div class="header-content">
 			<div class="header-content-inner">
-				<img style="max-width: 80%;" src="img/logo-rectangle-inverse.png" class="wow bounceIn" data-wow-delay=".1s"/>
+				<img style="max-width: 80%;" src="img/logo-rectangle-inverse.png"/>
 				<p>Liste candidate au renouvellement du bureau national des Jeunes Démocrates !</p>
-				<a href="#projet" class="btn btn-primary btn-xl page-scroll" style="border: 1px solid rgba(255,255,255,0.15)"><span class="small" style="font-weight: 400;">Découvrir l'axe 1 du programme :</span><br/> "Action, Mobilisation !"</a>
+				<a href="#projet" class="btn btn-primary btn-xl page-scroll" data-wow-delay=".1" style="border: 1px solid rgba(255,255,255,0.15)"><span class="small" style="font-weight: 400;">Découvrir l'axe 2 du programme :</span><br/> "Bâtir un projet innovant !"</a>
 			</div>
 		</div>
 	</header>
+
+	<div onclick="window.open('https://www.google.com/maps/d/embed?mid=zgXiTd9sJQ2g.kLSdy8lcaws8')"
+		style="display: block; width: 100%; height: 50vh; max-height: 400px; background-image: url('img/carte-des-rencontres.jpg'); background-size: cover; background-position: center;"
+		class="map" target="_blank">
+		<div class="map--content" class="fluid-container">
+			<div class="map--text text-center">
+				<h2 style="color: #ff6100">Venez nous rencontrer...</h2>
+				<p class="minitext">À Paris, Lille, Lyon, Caen ou Nancy !</p>
+				<p class="minitext potato-text" style="font-size: .8em;"><i class="fa fa-arrow-right" style="position: relative; bottom: .1em;"></i> Voir le détail des évènements</p>
+			</div>
+		</div>
+	</div>
+
+	<style>
+
+	.map { position: relative; }
+	.map--content { height: 100%; width: 100%; transition: 1s all; opacity: 0; cursor: pointer; }
+	.map--content:hover { background-color: rgba(255,255,255,.5); opacity: 1; }
+	.map--text { position: absolute; width: 100%; top: 30%; padding: 0 4em; text-shadow: rgba(255, 255, 255, 0.85) 0px 0px 2em;}
+	.potato-text:hover { text-decoration: underline; }
+
+	</style>
+
+	<section id="projet">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<h2 class="section-heading">Notre projet en 6 axes, rédigés collaborativement</h2>
+					<p class="minitext">Le projet est dévoilé progressivement !</p>
+					<hr class="primary">
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row no-gutter">
+				<div class="col-lg-4 col-sm-6">
+					<a href="https://docs.google.com/document/d/12dF7KZ9p-9MZmt89SCMG2YK1XTGB8h8C59K3gtF6_fk/" target="_blank" class="portfolio-box">
+						<img src="img/axe1.png" class="img-responsive" alt="">
+						<div class="portfolio-box-caption">
+							<div class="portfolio-box-caption-content">
+								<div class="project-category text-faded">
+									Axe 1
+								</div>
+								<h3 class="project-name">
+									Mobilisation, Action !
+								</h3>
+								<p class="small">Cliquez pour le détail des propositions</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a href="https://docs.google.com/document/d/1F2enoBDFPC87BbAzt4jYb6cdOXtjdqWjcYp6zinE9zw/" target="_blank" class="portfolio-box wow tada">
+						<img src="img/axe2.png" class="img-responsive" alt="">
+						<div class="portfolio-box-caption">
+							<div class="portfolio-box-caption-content">
+								<div class="project-category text-faded">
+									Axe 2
+								</div>
+								<h3 class="project-name">
+									Bâtir un projet innovant
+								</h3>
+								<p class="small">Cliquez pour le détail des propositions</p>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<a class="portfolio-box">
+						<img src="img/axe-vide.png" class="img-responsive" alt="">
+						<div class="portfolio-box-caption">
+							<div class="portfolio-box-caption-content">
+								<div class="project-category text-faded">
+									Axe 3
+								</div>
+								<div class="project-name">
+									À venir
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section id="soutiens" class="bg-dark">
+		<div class="container text-center">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2 class="section-heading">Notre équipe mêle expérience et renouveau</h2>
+					<p class="minitext">Notre équipe est dévoilée progressivement, tout au long de la campagne !</p>
+					<hr class="primary">
+				</div>
+			</div>
+
+			<div id="membres-de-lequipe">
+
+				<div id="listeux">
+
+				</div>
+
+				<h3 class="text-center" style="margin-top: 2em;">Ils nous soutiennent également :</h3>
+
+				<hr>
+
+				<div id="copains">
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
 
 	<section id="tribune">
 		<div class="container">
@@ -155,13 +263,7 @@
 <div id="read-more" class="btn btn-default btn-block btn-sm wow fadeIn" style="margin: 1em 0; box-shadow: 1px 1px 3px #ccc; border: 1px solid #ddd" data-wow-delay="1s"><i class="fa fa-plus"></i> Lire la suite</div>
 				<hr style="border-color: #777;">
 				<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=34068467448";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+
 					<div class="text-center">
 					
 					<div class="fb-follow" data-href="https://www.facebook.com/nouveaux-democrates" data-layout="button" data-show-faces="true" style=" display:inline-block;"></div>
@@ -170,143 +272,6 @@
 
 					</div>
 					
-					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="services" style="display: none;">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">At Your Service</h2>
-					<hr class="primary">
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box">
-						<i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
-						<h3>Sturdy Templates</h3>
-						<p class="text-muted">Our templates are updated regularly so they don't break.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box">
-						<i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
-						<h3>Ready to Ship</h3>
-						<p class="text-muted">You can use this theme as is, or you can make changes!</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box">
-						<i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
-						<h3>Up to Date</h3>
-						<p class="text-muted">We update dependencies to keep things fresh.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6 text-center">
-					<div class="service-box">
-						<i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-						<h3>Made with Love</h3>
-						<p class="text-muted">You have to make your websites with love these days!</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section id="soutiens" class="bg-dark">
-		<div class="container text-center">
-			<div class="row">
-				<div class="col-lg-12">
-					<h2 class="section-heading">Notre équipe mêle expérience et renouveau</h2>
-					<p class="minitext">Notre équipe est dévoilée progressivement, tout au long de la campagne !</p>
-					<hr class="primary">
-				</div>
-			</div>
-
-			<div id="membres-de-lequipe">
-
-				<div id="listeux">
-
-				</div>
-
-				<h3 class="text-center" style="margin-top: 2em;">Ils nous soutiennent également :</h3>
-
-				<hr>
-
-				<div id="copains">
-
-				</div>
-
-			</div>
-		</div>
-	</section>
-
-
-	<section id="projet">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading">Notre projet en 6 axes, rédigés collaborativement</h2>
-					<p class="minitext">Le projet est dévoilé progressivement !</p>
-					<hr class="primary">
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid">
-			<div class="row no-gutter">
-				<div class="col-lg-4 col-sm-6">
-					<a href="https://docs.google.com/document/d/12dF7KZ9p-9MZmt89SCMG2YK1XTGB8h8C59K3gtF6_fk/" target="_blank" class="portfolio-box">
-						<img src="img/axe1.png" class="img-responsive" alt="">
-						<div class="portfolio-box-caption">
-							<div class="portfolio-box-caption-content">
-								<div class="project-category text-faded">
-									Axe 1
-								</div>
-								<h3 class="project-name">
-									Mobilisation, Action !
-								</h3>
-								<p class="small">Cliquez pour le détail des propositions</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a href="https://docs.google.com/document/d/1F2enoBDFPC87BbAzt4jYb6cdOXtjdqWjcYp6zinE9zw/" target="_blank" class="portfolio-box">
-						<img src="img/axe2.png" class="img-responsive" alt="">
-						<div class="portfolio-box-caption">
-							<div class="portfolio-box-caption-content">
-								<div class="project-category text-faded">
-									Axe 2
-								</div>
-								<h3 class="project-name">
-									Bâtir un projet innovant
-								</h3>
-								<p class="small">Cliquez pour le détail des propositions</p>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-sm-6">
-					<a class="portfolio-box">
-						<img src="img/axe-vide.png" class="img-responsive" alt="">
-						<div class="portfolio-box-caption">
-							<div class="portfolio-box-caption-content">
-								<div class="project-category text-faded">
-									Axe 3
-								</div>
-								<div class="project-name">
-									À venir
-								</div>
-							</div>
-						</div>
-					</a>
 				</div>
 			</div>
 		</div>
@@ -328,11 +293,8 @@
 
 				<div class="col-sm-6">
 <!-- Begin MailChimp Signup Form -->
-<!--<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">-->
 <style type="text/css">
 	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
 <div id="mc_embed_signup">
 <form action="//facebook.us12.list-manage.com/subscribe/post?u=369b8bd37fe81d28d8c4b8be1&amp;id=a07c137fa7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
@@ -377,6 +339,10 @@
 		</div>
 	</section>
 
+
+
+
+
 <style>
 	iframe[id^="twitter-widget-"] { position: relative !important; top: 5.5px; }
 	#tribune { color: #333; }
@@ -399,7 +365,7 @@
 
 	.minitext { text-align: center; color: #777; max-width: 48em; margin-left: auto; margin-right: auto; }
 
-	#soutiens .portrait { display: inline-block; border-radius: 50%; border: .5em solid #ccc; height: 12em; width: 12em; background-size: contain; background-position: top; }
+	#soutiens .portrait { display: inline-block; border-radius: 50%; border: .5em solid #ccc; height: 12em; width: 12em; background-size: cover; background-position: top; }
 	#soutiens .soutiens .portrait { height: 9em; width: 9em; }
 	#soutiens .description { color: #999; font-size: 1em}
 	#soutiens .quote { color: #ccc; font-size: 1em; font-style: italic; }
@@ -415,15 +381,6 @@
 		$('#tribune-contenu').addClass('read-more')
 		$(this).fadeOut()
 	})
-
-//	$('.portfolio-box').click(function(){
-//		$(this).toggleClass('active')
-//		return false
-//	})
-
-	</script>
-
-	<script>
 	
 	function loadPortraits() {
 		// Tries to get data from the Sheets api. Otherwise, retries 200ms later.
@@ -487,10 +444,40 @@
 	
 	var api = "https://spreadsheets.google.com/feeds/list/1cFiTd89Hbtzp_Gd0lGm8Z00ZMdI4MQY2DifmG_Fv2iM/1/public/basic?alt=json"
 	
-	$( document ).ready(function() {
-		callPortraits = $.ajax(api)
-		loadPortraits()
-	})
+	callPortraits = $.ajax(api)
+	loadPortraits()
+
+	var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+	var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
+	var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+	var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+	var is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
+	if ((is_chrome)&&(is_safari)) {is_safari=false;}
+	if ((is_chrome)&&(is_opera)) {is_chrome=false;}
+
+	if (is_safari) $('.wow').removeClass('wow')
+
+//	<!-- Google Analytics -->
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-72225371-1', 'auto');
+	ga('send', 'pageview');
+
+//	<!-- Twitter Follow Button -->
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+
+//	<!-- Facebook Like Button -->
+	(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=34068467448";
+	fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
 
 	</script>
 
@@ -505,17 +492,14 @@
 	<!-- Custom Theme JavaScript -->
 	<script src="js/creative.js"></script>
 
-	<!-- Google Analytics -->
-	<script>
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	
-	  ga('create', 'UA-72225371-1', 'auto');
-	  ga('send', 'pageview');
-	
-	</script>
+	<!-- Custom Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+	<!-- Plugin CSS -->
+	<link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
 
 </body>
 
