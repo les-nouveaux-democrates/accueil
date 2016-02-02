@@ -25,7 +25,7 @@ iframe[id^="twitter-widget-"] { position: relative !important; top: 5.5px; }
 #soutiens .quote { color: #ccc; font-size: 1em; font-style: italic; }
 .portrait-box { padding-top: 1em; padding-bottom: 1em; float: none !important; display: inline-block; vertical-align: top; }
 
-#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+#mc_embed_signup{ clear: left; font:14px Helvetica,Arial,sans-serif; }
 
 .map { position: relative; }
 .map--content { height: 100%; width: 100%; transition: 1s all; opacity: 0; cursor: pointer; }
