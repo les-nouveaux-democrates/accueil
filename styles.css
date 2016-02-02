@@ -1,0 +1,34 @@
+iframe[id^="twitter-widget-"] { position: relative !important; top: 5.5px; }
+#tribune { color: #333; }
+#tribune strong { color: #ff6100; }
+#tribune ul { padding: 0; }
+#tribune p, #tribune li, #tribune blockquote { line-height: 1.8; font-size: 1.15em; }
+#tribune blockquote { border-color: #ff6100; }
+#tribune li { margin: 1em 0; }
+#tribune h3 { border-bottom: 1px dashed #ccc; padding-bottom: .5em; }
+#tribune h3:before { content: "\f0a9 \0020"; color: #ff6100; font-family: FontAwesome; font-size: 1.2em; position: relative; bottom: -0.06em; }
+#tribune-contenu { margin: 0 10px; max-height: 24em; overflow: hidden; transition: 3s all; }
+#tribune-contenu.read-more { max-height: 320em; }
+.btn-default { background-color: #eee; color: #999; }
+.btn-default:hover { color: #ff6100; }
+.btn-primary:hover { background-color: rgba(255,255,255,0.1); }
+#mc_embed_signup { background: none; }
+#mc_embed_signup h2 { color: #ff6100; }
+
+.project-name { text-transform: uppercase; margin-top: .25em; font-weight: bold; }
+
+.minitext { text-align: center; color: #777; max-width: 48em; margin-left: auto; margin-right: auto; }
+
+#soutiens .portrait { display: inline-block; border-radius: 50%; border: .5em solid #ccc; height: 12em; width: 12em; background-size: cover; background-position: top; }
+#soutiens .soutiens .portrait { height: 9em; width: 9em; }
+#soutiens .description { color: #999; font-size: 1em}
+#soutiens .quote { color: #ccc; font-size: 1em; font-style: italic; }
+.portrait-box { padding-top: 1em; padding-bottom: 1em; float: none !important; display: inline-block; vertical-align: top; }
+
+#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+
+.map { position: relative; }
+.map--content { height: 100%; width: 100%; transition: 1s all; opacity: 0; cursor: pointer; }
+.map--content:hover { background-color: rgba(255,255,255,.5); opacity: 1; }
+.map--text { position: absolute; width: 100%; top: 30%; padding: 0 4em; text-shadow: rgba(255, 255, 255, 0.85) 0px 0px 2em;}
+.potato-text:hover { text-decoration: underline; }

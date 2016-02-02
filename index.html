@@ -20,7 +20,7 @@
 	<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 
 	<!-- Bootstrap Core CSS -->
-	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="css/creative.css" type="text/css">
@@ -92,16 +92,6 @@
 			</div>
 		</div>
 	</div>
-
-	<style>
-
-	.map { position: relative; }
-	.map--content { height: 100%; width: 100%; transition: 1s all; opacity: 0; cursor: pointer; }
-	.map--content:hover { background-color: rgba(255,255,255,.5); opacity: 1; }
-	.map--text { position: absolute; width: 100%; top: 30%; padding: 0 4em; text-shadow: rgba(255, 255, 255, 0.85) 0px 0px 2em;}
-	.potato-text:hover { text-decoration: underline; }
-
-	</style>
 
 	<section id="projet">
 		<div class="container">
@@ -292,10 +282,7 @@
 
 
 				<div class="col-sm-6">
-<!-- Begin MailChimp Signup Form -->
-<style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-</style>
+
 <div id="mc_embed_signup">
 <form action="//facebook.us12.list-manage.com/subscribe/post?u=369b8bd37fe81d28d8c4b8be1&amp;id=a07c137fa7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
@@ -340,127 +327,15 @@
 	</section>
 
 
-
-
-
-<style>
-	iframe[id^="twitter-widget-"] { position: relative !important; top: 5.5px; }
-	#tribune { color: #333; }
-	#tribune strong { color: #ff6100; }
-	#tribune ul { padding: 0; }
-	#tribune p, #tribune li, #tribune blockquote { line-height: 1.8; font-size: 1.15em; }
-	#tribune blockquote { border-color: #ff6100; }
-	#tribune li { margin: 1em 0; }
-	#tribune h3 { border-bottom: 1px dashed #ccc; padding-bottom: .5em; }
-	#tribune h3:before { content: "\f0a9 \0020"; color: #ff6100; font-family: FontAwesome; font-size: 1.2em; position: relative; bottom: -0.06em; }
-	#tribune-contenu { margin: 0 10px; max-height: 24em; overflow: hidden; transition: 3s all; }
-	#tribune-contenu.read-more { max-height: 320em; }
-	.btn-default { background-color: #eee; color: #999; }
-	.btn-default:hover { color: #ff6100; }
-	.btn-primary:hover { background-color: rgba(255,255,255,0.1); }
-	#mc_embed_signup { background: none; }
-	#mc_embed_signup h2 { color: #ff6100; }
-
-	.project-name { text-transform: uppercase; margin-top: .25em; font-weight: bold; }
-
-	.minitext { text-align: center; color: #777; max-width: 48em; margin-left: auto; margin-right: auto; }
-
-	#soutiens .portrait { display: inline-block; border-radius: 50%; border: .5em solid #ccc; height: 12em; width: 12em; background-size: cover; background-position: top; }
-	#soutiens .soutiens .portrait { height: 9em; width: 9em; }
-	#soutiens .description { color: #999; font-size: 1em}
-	#soutiens .quote { color: #ccc; font-size: 1em; font-style: italic; }
-	.portrait-box { padding-top: 1em; padding-bottom: 1em; float: none !important; display: inline-block; vertical-align: top; }
-</style>
+	<link rel="stylesheet" href="styles.css" type="text/css"> <!-- CUSTOM CSS -->
 
 	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
-	<script>
-
-	$('#read-more').click(function(){
-		$('#tribune-contenu').addClass('read-more')
-		$(this).fadeOut()
-	})
-	
-	function loadPortraits() {
-		// Tries to get data from the Sheets api. Otherwise, retries 200ms later.
-		if (callPortraits.responseJSON === undefined) setTimeout(loadPortraits, 200)
-		else buildPortraits(callPortraits.responseJSON.feed.entry) 
-	}
-	
-	function buildPortraits(people) {
-		// Builds the HTML structure around a portrait.
-		$.each(people, function(i, person) {
-			var nom = person.title.$t
-				details = person.content.$t.replace('prénom: ', '')
-					.replace(', photo: ','|')
-					.replace(', description: ','|')
-					.replace(', citation: ','|')
-					.replace(', statut: ','|')
-					.replace(', actif: ','|')
-					.split('|')
-				prenom = details[0]
-				image = details[1]
-				description = details[2]
-				citation = details[3]
-				statut = details[4]
-				actif = details[5]
-	
-			if (statut==="Listeux") $('#listeux').append('<div id="portrait-' + i + '" class="portrait-box"></div>')
-			if (statut==="Soutien") $('#copains').append('<div id="portrait-' + i + '" class="portrait-box"></div>')
-	
-			$('#portrait-' + i)
-				.attr('data-name', prenom + ' ' + nom)
-				.attr('data-description', description)
-				.attr('data-image', image)
-				.attr('data-quote', citation)
-				.attr('data-status', statut)
-				.attr('data-active', actif)
-		})
-
-		$('#listeux > div, #copains > div').each(function(){
-			var $membre = $(this)
-				name = $membre.attr('data-name')
-				image = $membre.attr('data-image')
-				quote = $membre.attr('data-quote')
-				description = $membre.attr('data-description')
-				status = $membre.attr('data-status')
-				active = $membre.attr('data-active')
-				randomDelay = '.' + (Math.floor(Math.random() * 10 ) + 1).toString() + 's'
-			if (active==="Non") {
-				image = "http://imgur.com/8Nc65xR.png"
-				name = "???"
-				description = "Pas encore dévoilé"
-			}
-			$(this).addClass('col-sm-6 col-md-4 col-lg-3 text-center wow flipInY')
-			$(this).attr('data-wow-delay', randomDelay).attr('data-wow-duration', '3s' )
-			$(this).append('<div class="portrait" style="background-image: url(&quot;' + image + '&quot;)"></div>')
-			$(this).append('<h3>' + name + '</h3>')
-			if (typeof description !== "undefined") $(this).append('<p class="description">' + description + '</p>')
-//			if (typeof quote !== "undefined") $(this).append('<hr><p class="quote">' + quote + '</p>')
-		})
-
-	}
-	
-	var api = "https://spreadsheets.google.com/feeds/list/1cFiTd89Hbtzp_Gd0lGm8Z00ZMdI4MQY2DifmG_Fv2iM/1/public/basic?alt=json"
-	
-	callPortraits = $.ajax(api)
-	loadPortraits()
-
-	var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
-	var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
-	var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
-	var is_safari = navigator.userAgent.indexOf("Safari") > -1;
-	var is_opera = navigator.userAgent.toLowerCase().indexOf("op") > -1;
-	if ((is_chrome)&&(is_safari)) {is_safari=false;}
-	if ((is_chrome)&&(is_opera)) {is_chrome=false;}
-
-	if (is_safari) $('.wow').removeClass('wow')
-
-</script>
+	<script src="scripts.min.js"></script> <!-- CUSTOM JS -->
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 	<!-- Plugin JavaScript -->
 	<script src="js/jquery.easing.min.js"></script>
