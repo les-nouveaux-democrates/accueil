@@ -32,3 +32,6 @@ iframe[id^="twitter-widget-"] { position: relative !important; top: 5.5px; }
 .map--content:hover { background-color: rgba(255,255,255,.5); opacity: 1; }
 .map--text { position: absolute; width: 100%; top: 30%; padding: 0 4em; text-shadow: rgba(255, 255, 255, 0.85) 0px 0px 2em;}
 .potato-text:hover { text-decoration: underline; }
+
+.portfolio-box { width: 100%; }
+.portfolio-box img { width: 100%; }
