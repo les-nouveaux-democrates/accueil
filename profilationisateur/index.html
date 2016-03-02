@@ -60,7 +60,7 @@
 
 	<hr>
 
-	<a id="download" onclick="notYet()" class="btn btn-primary btn-block btn-lg">
+	<a id="download" onclick="return notYet();" class="btn btn-primary btn-block btn-lg">
 		Télécharger la coolitude
 	</a>
 
@@ -169,7 +169,7 @@ function refreshCanvas() {
 
 function notYet() {
 	$('#alert').append('<div style="margin-top: 1em;" class="alert alert-danger">Pour éviter des publications de photos de profil trop en avance, le téléchargement est inactif pour le moment ... On se garde ça pour jeudi/vendredi !</div>')
-	return false
+	return false;
 }
 
 </script>
