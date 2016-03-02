@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Les Nouveaux Démocrates sont une lite candidate à l'élection du bureau national des Jeunes Démocrates, du 21 février au 3 mars.">
+	<meta name="author" content="">
+
+	<meta property="og:title" content="Les Nouveaux Démocrates">
+	<meta property="og:site_name" content="Les Nouveaux Démocrates">
+	<meta property="og:url" content="http://nouveaux-democrates.fr">
+	<meta property="og:description" content="Les Nouveaux Démocrates sont une lite candidate à l'élection du bureau national des Jeunes Démocrates, du 21 février au 3 mars.">
+	<meta property="og:type" content="quick_election.election">
+
+	<title>Les Nouveaux Démocrates</title>
+
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+
+</head>
+
+<body class="text-center">
+
+	<h1>Générateur de coolitude</h1>
+
+	<hr>
+
+	<form>
+		<div class="form-group">
+			<h3>Portrait</h3>
+			<select id="portraitSelector" class="form-control" onchange="showPortrait()">
+				<option>Chargement...</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<h3>Citation</h3>
+			<select id="quoteSelector" class="form-control" onchange="showQuote()">
+				<option>Chargement...</option>
+			</select>
+		</div>
+	</form>
+
+	<hr>
+	
+	<div id="profilePicture">
+	
+		<div id="portrait" style="background-image: url('portraits/6MB0zy4.jpg')">
+			<img id="logo" src="banner.png">
+		</div>
+	
+		<div id="quoteBar">
+			<span id="quote">Sortons-nous les doigts du centre !</span>
+		</div>
+	
+	</div>
+
+	<hr>
+
+	<a id="download" onclick="notYet()" class="btn btn-primary btn-block btn-lg">
+		Télécharger la coolitude
+	</a>
+
+	<div id="alert"></div>
+
+
+</body>
+
+<style>
+
+h1 { text-transform: uppercase; font-weight: bold; margin-top: 1em; }
+body { font-family: 'Open Sans', sans-serif; width: 360px; margin: auto; }
+#profilePicture { position: relative; display: inline-block; overflow: hidden; }
+#portrait { width: 360px; height: 360px; background-size: cover; background-position: center center; }
+#logo { position: absolute; bottom: 0; left: 0; width: 100%; background-color: rgba(0,0,0,.3);}
+#quoteBar { background-color: rgba(255,97,0, 0.7); text-align: center; position: absolute; left: -10px; top: 10px; width: calc(100% + 20px); transform: rotate(3deg); }
+#quote { display: inline-block; max-width: 360px; padding: 1em; 
+font-size: 1em; color: white; text-transform: uppercase; }
+
+</style>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+
+<script>
+
+var $portraitSelector = $('#portraitSelector')
+
+function showPortrait() {
+	$('#portrait').css('background-image', "url('" + $portraitSelector.val() + "')" )
+	refreshCanvas()
+}
+
+function loadPortraits() {
+	// Tries to get data from the Sheets api. Otherwise, retries 200ms later.
+	if (callPortraits.responseJSON === undefined) setTimeout(loadPortraits, 200)
+	else buildPortraits(callPortraits.responseJSON.feed.entry) 
+}
+
+function buildPortraits(people) {
+	// Builds the HTML structure around a portrait.
+	$portraitSelector.empty()
+	$.each(people, function(i, person) {
+		var nom = person.title.$t
+			details = person.content.$t.replace('prénom: ', '')
+				.replace(', photo: ','|')
+				.split('|')
+			prenom = details[0]
+			image = details[1]
+
+		image = image.split(',')[0].replace('http://i.imgur.com/', 'portraits/')
+		$portraitSelector.append('<option value="' + image + '">' + prenom + ' ' + nom + '</option>')
+	})
+
+}
+	
+var apiPortraits = "https://spreadsheets.google.com/feeds/list/1cFiTd89Hbtzp_Gd0lGm8Z00ZMdI4MQY2DifmG_Fv2iM/1/public/basic?alt=json"
+
+callPortraits = $.ajax(apiPortraits)
+loadPortraits()
+
+//////////////////////
+
+var $quoteSelector = $('#quoteSelector')
+
+function showQuote() {
+	$('#quote').text($quoteSelector.val())
+	refreshCanvas()
+}
+
+function loadQuotes() {
+	// Tries to get data from the Sheets api. Otherwise, retries 200ms later.
+	if (callQuotes.responseJSON === undefined) setTimeout(loadQuotes, 200)
+	else {
+		buildQuotes(callQuotes.responseJSON.feed.entry)
+	}
+}
+
+function buildQuotes(quotes) {
+	$quoteSelector.empty()
+	$.each(quotes, function(i, quote) {
+		var text = quote.title.$t
+		$quoteSelector.append('<option value="' + text + '">' + text + '</option>')
+	})
+}
+	
+var apiQuotes = "https://spreadsheets.google.com/feeds/list/1KOyZNWnpDlV43gyjcMQjJxvbnRtkCrWQv0Pr1BVjGdA/1/public/basic?alt=json"
+
+callQuotes = $.ajax(apiQuotes)
+loadQuotes()
+
+///////////////
+
+function refreshCanvas() {
+	html2canvas($('#profilePicture')).then(function(canvas) {
+		var image = canvas.toDataURL("image/jpeg");
+		$('#download').attr({
+			'download': 'photoDeProfil-LND+IC.jpeg',
+			'href'    : image
+		});
+	});
+}
+
+function notYet() {
+	$('#alert').append('<div style="margin-top: 1em;" class="alert alert-danger">Pour éviter des publications de photos de profil trop en avance, le téléchargement est inactif pour le moment ... On se garde ça pour jeudi/vendredi !</div>')
+	return false
+}
+
+</script>
+
+<footer style="margin-top: 3em;" >
+<p style="font-size: .8em; color: #999">Fabriqué avec ❤ par Antonin<br/>Pour ajouter des citations, ou changer<br/>votre photo, passez moi un <a href="https://www.messenger.com/t/antonin.grele">message</a> !</p>
+</footer>
+
+</body>
+
+</html>
