@@ -36,11 +36,12 @@
 				<option>Chargement...</option>
 			</select>
 		</div>
+		<h3>Citation</h3>
 		<div class="form-group">
-			<h3>Citation</h3>
-			<select id="quoteSelector" class="form-control" onchange="showQuote()">
-				<option>Chargement...</option>
-			</select>
+			<select id="quoteSelector" class="form-control" onchange="showQuote()"></select>
+		</div>
+		<div class="form-group">
+			<input id="quoteWriter" class="form-control" placeholder="Ou écrivez votre propre citation !"></input>
 		</div>
 	</form>
 
@@ -60,7 +61,7 @@
 
 	<hr>
 
-	<a id="download" onclick="return notYet();" class="btn btn-primary btn-block btn-lg">
+	<a id="download" class="btn btn-primary btn-block btn-lg">
 		Télécharger la coolitude
 	</a>
 
@@ -126,6 +127,15 @@ callPortraits = $.ajax(apiPortraits)
 loadPortraits()
 
 //////////////////////
+
+
+
+var $quoteWriter = $('#quoteWriter')
+
+$quoteWriter.on('keyup',function(){
+	$('#quote').text($quoteWriter.val())
+	refreshCanvas()
+})
 
 var $quoteSelector = $('#quoteSelector')
 
